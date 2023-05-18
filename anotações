@@ -1,0 +1,27 @@
+<View style={estilos.container}>
+            <TextInput placeholder="Seu email..." style={estilos.textinputnormal} value={email} onChangeText={(text) => setEmail(text)} ></TextInput>
+            <TextInput secureTextEntry={true} placeholder="Sua senha..." style={estilos.textinputnormal} value={senha} onChangeText={(text) => setSenha(text)} ></TextInput>
+            <Text style={{color:'white', flex:0.040}} onPress={() => navigation.navigate('cadastro')}>Não tem uma conta?</Text>
+            <TouchableOpacity style={estilos.botaocadastro} onPress={() => navigation.navigate('cadastro')}>
+                <Text style={{color:'black', textAlign:'center'}}>Entrar</Text>
+            </TouchableOpacity>
+
+            import firebase from 'firebase/compat/app'
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore'
+
+const firebaseConfig = {
+    apiKey: "AIzaSyARvQ3WSLmwfO9CKzuqhlTMUdhcCqRKZZM",
+    authDomain: "squad6-bdf21.firebaseapp.com",
+    projectId: "squad6-bdf21",
+    storageBucket: "squad6-bdf21.appspot.com",
+    messagingSenderId: "134824573760",
+    appId: "1:134824573760:web:13650820d587f1e866d8a5",
+    measurementId: "G-QLJYG6QSMM"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+export default firebase
